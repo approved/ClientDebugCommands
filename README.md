@@ -2,7 +2,7 @@
     Client Debug Commands
 </h1>
 <p align="center">
-    <a href="license">
+    <a href="LICENSE">
         <img alt="GitHub" src="https://img.shields.io/github/license/approved/ClientDebugCommands?style=for-the-badge">
     </a>
     <br>
