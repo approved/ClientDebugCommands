@@ -43,6 +43,10 @@ public class CDebugCommand {
                         .then(CommandManager.argument("distance", IntegerArgumentType.integer())
                                 .executes(CDebugCommand::setRenderDistance)));
 
+        literalArgumentBuilder.then(
+                (LiteralArgumentBuilder) CommandManager.literal(F3Option.COPYLOOKATDATA.getCommand())
+                        .executes(CDebugCommand::copyLookAtData));
+
         dispatcher.register(literalArgumentBuilder);
         CDCLogger.info("Successfully registered debug commands");
     }
@@ -58,6 +62,15 @@ public class CDebugCommand {
                 )
         );
         ((KeyboardF3Mixin) instance.keyboard).invokeDebugLog("debug.cycle_renderdistance.message", instance.options.viewDistance);
+        return 1;
+    }
+
+    private static int copyLookAtData(CommandContext<ServerCommandSource> context) {
+        MinecraftClient instance = MinecraftClient.getInstance();
+        if (!instance.player.hasReducedDebugInfo()) {
+            ((KeyboardF3Mixin) instance.keyboard).invokeCopyLookAt(instance.player.hasPermissionLevel(2), false);
+        }
+
         return 1;
     }
 }
