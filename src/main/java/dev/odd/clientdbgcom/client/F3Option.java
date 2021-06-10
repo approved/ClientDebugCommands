@@ -14,7 +14,8 @@ public enum F3Option {
     TOGGLEUNFOCUSPAUSE(80, "unfocus"), 
     SHOWHELP(81, "help"), 
     RELOADRESPACKS(84, "reres"),
-    SHOWGMSELECTION(293, "gmselect");
+    //SHOWGMSELECTION(293, "gmselect")
+    ;
 
     private final int key;
     private final String command;
