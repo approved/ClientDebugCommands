@@ -5,7 +5,7 @@ public enum F3Option {
     TOGGLEHITBOXES(66, "hitbox"), 
     COPYTPLOCATION(67, "copytp"), 
     CLEARCHAT(68, "clear"),
-    CYCLERENDERDISTANCE(70, "cyrender"), 
+    CYCLERENDERDISTANCE(70, "render", true), 
     TOGGLECHUNKBOUNDS(71, "chunkbounds"), 
     TOGGLEADVTOOLT(72, "advtooltip"),
     COPYLOOKATDATA(73, "copylookat"), 
@@ -19,10 +19,18 @@ public enum F3Option {
 
     private final int key;
     private final String command;
+    private final boolean isExtra;
 
     private F3Option(int key, String command) {
         this.key = key;
         this.command = command;
+        this.isExtra = false;
+    }
+
+    private F3Option(int key, String command, boolean extra) {
+        this.key = key;
+        this.command = command;
+        this.isExtra = extra;
     }
 
     public int getKey() {
@@ -31,5 +39,9 @@ public enum F3Option {
 
     public String getCommand() {
         return this.command;
+    }
+
+    public boolean hasExtra() {
+        return this.isExtra;
     }
 }

@@ -10,4 +10,10 @@ public interface KeyboardF3Mixin {
 
     @Invoker
     public abstract boolean invokeProcessF3(int key);
+
+    @Invoker
+    public abstract void invokeCopyLookAt(boolean hasQueryPermission, boolean queryServer);
+
+    @Invoker
+    public abstract void invokeDebugLog(String key, Object... args);
 }
